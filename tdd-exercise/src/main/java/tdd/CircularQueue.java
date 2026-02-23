@@ -13,4 +13,16 @@ package tdd;
  *   - Introduce methods in the interface in order to make the tests pass.
  *   - Refactor
  */
-public interface CircularQueue { }
+public interface CircularQueue {
+    boolean isEmpty();
+
+    boolean isFull();
+
+    void add(int i);
+
+    /**
+     *
+     * @throws IllegalStateException if queue is empty
+     */
+    int getFirst();
+}
