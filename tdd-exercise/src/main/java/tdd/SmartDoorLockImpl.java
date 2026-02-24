@@ -24,11 +24,10 @@ public class SmartDoorLockImpl implements SmartDoorLock {
 
     @Override
     public void unlock(int pin) {
-        final boolean isPinWrong = ! (pin == this.pin);
-        if (isPinWrong) {
+        if (! (pin == this.pin)) {
             this.failedAttempts++;
         } else  {
-            this.locked = false;
+            this.locked = isBlocked();
         }
     }
 

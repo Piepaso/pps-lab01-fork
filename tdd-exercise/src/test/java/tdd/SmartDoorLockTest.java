@@ -88,6 +88,13 @@ public class SmartDoorLockTest {
     }
 
     @Test
+    void testCannotUnlockWhenBlocked() {
+        block();
+        door.unlock(PIN);
+        assertTrue(door.isLocked());
+    }
+
+    @Test
     void testReset() {
         block();
         door.reset();
