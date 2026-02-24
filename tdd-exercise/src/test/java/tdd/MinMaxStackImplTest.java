@@ -82,6 +82,13 @@ class MinMaxStackImplTest {
         assertEquals(Arrays.stream(TEST_ARRAY).max().getAsInt(), stack.getMax());
     }
 
+    @Test
+    public void testSize() {
+        pushArray();
+        stack.pop();
+        assertEquals(TEST_ARRAY.length - 1, stack.size());
+    }
+
     private void pushArray() {
         for (int i : TEST_ARRAY) {
             stack.push(i);

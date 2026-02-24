@@ -4,17 +4,20 @@ public class MinMaxStackImpl implements MinMaxStack {
     private LinkedInteger stackTop =  null;
     private int min = Integer.MAX_VALUE;
     private int max = Integer.MIN_VALUE;
+    private int size = 0;
 
     @Override
     public void push(int value) {
         stackTop = new LinkedInteger(value, stackTop);
         min = Math.min(min, value);
         max = Math.max(max, value);
+        size++;
     }
 
     @Override
     public int pop() {
         checkForEmptyStackRead();
+        size--;
         LinkedInteger temp = stackTop;
         stackTop = stackTop.getNext();
         return temp.getValue();
@@ -45,7 +48,7 @@ public class MinMaxStackImpl implements MinMaxStack {
 
     @Override
     public int size() {
-        return 0;
+        return size;
     }
 
     private void checkForEmptyStackRead() throws IllegalStateException {
