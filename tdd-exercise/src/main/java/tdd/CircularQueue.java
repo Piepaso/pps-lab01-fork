@@ -14,15 +14,48 @@ package tdd;
  *   - Refactor
  */
 public interface CircularQueue {
+
+    /**
+     * Checks if the queue is empty.
+     *
+     * @return true if the queue is empty, false otherwise.
+     */
     boolean isEmpty();
 
+    /**
+     * Checks if the queue is full.
+     *
+     * @return true if the queue is full, false otherwise.
+     */
     boolean isFull();
 
+    /**
+     * Gets the capacity of the queue.
+     *
+     * @return The capacity of the queue.
+     */
+    int getCapacity();
+
+    /**
+     * Adds an integer to the queue. If the queue is full, it overwrites the oldest element.
+     *
+     * @param i The integer to add.
+     */
     void add(int i);
 
     /**
+     * Removes and returns the oldest element of the queue.
      *
-     * @throws IllegalStateException if queue is empty
+     * @return The popped element.
+     * @throws IllegalStateException if the queue is empty.
      */
-    int getFirst();
+    int pop();
+
+    /**
+     * Retrieves, but does not remove, the oldest element of the queue.
+     *
+     * @return The oldest element of the queue.
+     * @throws IllegalStateException if the queue is empty.
+     */
+    int peek();
 }
